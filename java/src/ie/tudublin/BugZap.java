@@ -8,10 +8,11 @@ public class BugZap extends PApplet
     float playerX = 250;
     float playerY = 10;
     float playerWidth = 1000;
+    float playerSpeed = 30;
 
     float bugX = 200;
     float bugY = 990;
-    float bugWidth = 1000;
+    float bugWidth = 100;
     
     public void settings()
     {
@@ -37,18 +38,31 @@ public class BugZap extends PApplet
         bugY = 50;
     }
 
+    public void moveBug()
+    {
+        //bugY++;
+        bugX += random(-25, 25);
+    }
+
     public void draw()
     {
         background(255,255,255);
 
         drawPlayer(playerX, playerY, playerWidth);
-        //drawBug(bugX, bugY, bugWidth);
+        drawBug(bugX, bugY, bugWidth);
+        
+        if (frameCount % 20 == 0)
+        {
+            moveBug();
+        }
+        
+        //text("Score: " + score, 50, 50);
     }
 
     public void drawBug(float x, float y, float w)
     {
         float halfW = w / 2;
-        stroke(255);
+        //stroke(255);
         //noFill();
         triangle(x - halfW, y + halfW, x, y - halfW, x + halfW, y + halfW);
     }
@@ -64,8 +78,6 @@ public class BugZap extends PApplet
         line(x + 270, 900, x + 230, 900);
         line(x + 250, 900, x + 250, 870);
     }
-
-    float playerSpeed = 30;
 
     public void keyPressed()
     {
@@ -103,6 +115,8 @@ public class BugZap extends PApplet
         if (key == ' ')
         {
             System.out.println("SPACE key pressed");
+            line(playerX + 250, 870, playerX + 250, 0);
+            //player gotta shoot
         }
     }
 

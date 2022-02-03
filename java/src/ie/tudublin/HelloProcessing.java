@@ -36,19 +36,28 @@ public class HelloProcessing extends PApplet
 	
 	public void draw()
 	{	
-		background(255, 255, 0);				//greyscale
-		line(10, 10, 200, 200);		//x1, y1, x2, y2
-		circle(300, 250, 50);		//cx, cy, r
-		ellipse(50, 200, 90, 200);	//cr, cy, w, h
+		background(255, 0, 0);		//greyscale
+		//line(10, 10, 200, 200);		//x1, y1, x2, y2
+		//circle(300, 250, 50);		//cx, cy, r
+		//ellipse(50, 200, 90, 200);	//cr, cy, w, h
 
-		rectMode(CENTER);
-		rect(300, 20, 100, 20);		//tlx, tly, w, h
+		//stroke(0);
+
+		//rectMode(CENTER);
+		//rect(300, 20, 100, 20);		//tlx, tly, w, h
 		
-		rectMode(CORNER);
-		rect(200, 20, 100, 20);		//tlx, tly, w, h
+		//rectMode(CORNER);
+		//rect(200, 20, 100, 20);		//tlx, tly, w, h
 
-		point(20, 300);
+		//point(20, 300);
 
-		triangle(10, 400, 50, 450, 300, 200);	
+		triangle(10,450,490,450,250,5);	
+		fill(200);
+		circle(250,250,400);
+		fill(255, 255, 0);
+		ellipse(250,250,250,100);
+		fill(0);
+		circle(250,250,75);
+		
 	}
 }

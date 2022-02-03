@@ -10,9 +10,10 @@ public class BugZap extends PApplet
     float playerWidth = 1000;
     float playerSpeed = 30;
 
-    float bugX = 200;
+    float bugX = 500;
     float bugY = 990;
     float bugWidth = 100;
+    float halfBugWidth = bugWidth / 2;
     
     public void settings()
     {
@@ -34,14 +35,15 @@ public class BugZap extends PApplet
 
     private void resetBug() 
     {
-        bugX = random(200, 700);
+        bugX = random(100, 900);
         bugY = 50;
     }
 
     public void moveBug()
     {
         //bugY++;
-        bugX += random(-25, 25);
+        bugX += random(-50, 50);
+        //System.out.println("Bug: " + bugX);
     }
 
     public void draw()
@@ -62,7 +64,7 @@ public class BugZap extends PApplet
     public void drawBug(float x, float y, float w)
     {
         float halfW = w / 2;
-        //stroke(255);
+        stroke(0, 0, 0);
         //noFill();
         triangle(x - halfW, y + halfW, x, y - halfW, x + halfW, y + halfW);
     }
@@ -116,7 +118,11 @@ public class BugZap extends PApplet
         {
             System.out.println("SPACE key pressed");
             line(playerX + 250, 870, playerX + 250, 0);
-            //player gotta shoot
+
+            if (playerX > bugX - halfBugWidth && playerX < bugX + halfBugWidth)
+            {
+                System.out.println("Got'em");
+            }
         }
     }
 

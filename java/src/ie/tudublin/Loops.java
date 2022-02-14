@@ -14,7 +14,7 @@ public class Loops extends PApplet
 	}
 
 	public void setup() {
-		colorMode(HSB);
+		colorMode(RGB);
 		
 	}
 
@@ -34,8 +34,14 @@ public class Loops extends PApplet
 		switch(mode)	
 		{
 			case 0:
+				rect(150, 200, 200, 100);
+				color(0, 128, 0);
 				break;
 			case 1:
+				line(10, 10, 250, 150);
+				color(255, 0, 0);
+				break;
+			case 2:
 				break;
 		}
 	}

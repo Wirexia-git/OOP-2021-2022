@@ -13,9 +13,9 @@ public class Loops extends PApplet
 		size(500, 500);
 	}
 
-	public void setup() {
-		colorMode(RGB);
-		
+	public void setup() 
+	{
+		colorMode(HSB);
 	}
 
 	public void keyPressed()
@@ -34,12 +34,22 @@ public class Loops extends PApplet
 		switch(mode)	
 		{
 			case 0:
-				rect(150, 200, 200, 100);
-				color(0, 128, 0);
+				background(0);
+				int bars = (int) (mouseX / 20.0f);
+				float w = width / (float)bars;
+				for(int i = 0; i < bars; i++)
+				{
+					noStroke();
+					fill(map(i, 0, bars, 0, 255), 255, 255);
+					rect(map(i, 0, bars, 0, 500), 0, w, height);
+				}
+
+				//rect(150, 200, 200, 100);
+				//color(0, 128, 0);
 				break;
 			case 1:
-				line(10, 10, 250, 150);
-				color(255, 0, 0);
+				//line(10, 10, 250, 150);
+				//color(255, 0, 0);
 				break;
 			case 2:
 				break;

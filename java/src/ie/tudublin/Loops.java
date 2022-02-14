@@ -27,6 +27,8 @@ public class Loops extends PApplet
 		println(mode);
 	}
 
+
+	float offset = 0;
 	
 	public void draw()
 	{
@@ -62,12 +64,59 @@ public class Loops extends PApplet
 				//map(a,b,c,d,e);
 				//a = inputvalue
 				//b - c -- start and end of the first range
-				// d, e 0 -- start and end of the end range
+				//d, e 0 -- start and end of the end range
+				//map(-2,10,90,200,233)
+
 				//line(10, 10, 250, 150);
 				//color(255, 0, 0);
 				break;
 			case 2:
+				background(0);
+				int circles = (int) (mouseX / 20.0f);
+				float r = width / 2;
+				float q = height / 2;
+				for(int i = 0; circles > i; i--)
+				{
+					noStroke();
+					fill(map(i, 0, circles, 20, 200), 255, 255);
+					ellipse(100, 100, 100, 100);
+				}
 				break;
+			case 3:
+			{
+				background(0);
+				int circlee = (int) (mouseX / 20.0f);
+				float d = width / (float) circlee;
+				for(int i = 0; i < circlee; i++)
+				{
+					noStroke();
+					fill(map(i,0,circlee,0,255), 255, 255);
+					circle(map(i,0,circlee - 1, d / 2.0f, width - (d / 2.0f)), 255, 255);
+				}
+				break; 
+			}
+
+			case 4:
+			{
+				background(0);
+				int circlee = (int) (mouseX / 20.0f);
+				offset += mouseY;
+				float d = width / (float) circlee;
+				for(int j = 0; j < circlee; j++)
+				{
+					for(int i = 0; i < circlee; i++)
+					{
+						noStroke();
+						float c = map((i + j + offset), 0, circlee * 2, 0, 255) % 256;
+						fill(c, 255, 255);
+						float x = map(i, 0, circlee - 1, d / 2.0f, width - (d / 2.0f));
+						
+						circle(map(i,0,circlee - 1, d / 2.0f, width - (d / 2.0f)), 255, 255);
+					}
+					
+				}
+				break; 
+			}
 		}
 	}
 }
